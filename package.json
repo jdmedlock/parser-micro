@@ -1,0 +1,31 @@
+{
+  "name": "parsermicro",
+  "version": "1.0.0",
+  "description": "Request Header Parser Microservice",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jdmedlock/tsmicro.git"
+  },
+  "keywords": [
+    "tsmicro",
+    "heroku"
+  ],
+  "author": "Jim Medlock",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jdmedlock/parsermicro/issues"
+  },
+  "homepage": "https://github.com/jdmedlock/parsermicro#readme",
+  "dependencies": {
+    "express": "^4.14.0",
+    "path": "^0.12.7",
+    "url": "^0.11.0"
+  },
+  "engines": {
+    "node": "4.1.1"
+  }
+}
