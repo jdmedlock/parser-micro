@@ -40,7 +40,7 @@ app.get("/", function(request, response) {
     const softwareSpec = userAgentData.match(/\(.+?\)/g)[0].replace(/\(|\)/g,"");
 
     response.send(JSON.stringify({
-      "ipaddress": request.connection.remoteAddress,
+      "ipaddress": request.ip,
       "language": request.headers["accept-language"],
       "software": softwareSpec
     }));
