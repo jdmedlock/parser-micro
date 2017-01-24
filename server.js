@@ -5,9 +5,14 @@
 // freeCodeCamp Backend Certificate API Project - Request Header Parser Microservice
 //
 // Objective: Build a full stack JavaScript app that is functionally similar
-// to this:
-//      https://cryptic-ridge-9197.herokuapp.com/api/whoami/
+// to this: https://cryptic-ridge-9197.herokuapp.com/api/whoami/
 // and deploy it to Heroku.
+//
+// The ougput should be a JSON string similar to the following:
+//
+//    {"ipaddress":"97.91.210.51",
+//     "language":"en-us",
+//     "software":"Macintosh; Intel Mac OS X 10_12_2"}
 //
 // Note that for each project, you should create a new GitHub repository and
 // a new Heroku project. If you can't remember how to do this, revisit
@@ -29,20 +34,12 @@ const app = express();
 app.set("port", (process.env.PORT || 5000));
 
 app.get("/", function(request, response) {
-    response.sendFile(path.join(__dirname + "/index.html"));
-});
 
-app.get("/:TIMESTRING", function(request, response) {
-    const query = request.params.TIMESTRING;
-    let tsMicroService = new TsMicroService(query);
+//    let tsMicroService = new TsMicroService(query);
+console.log(request.headers["host"]);
 
-    const jsonResult = JSON.stringify({
-      unix: tsMicroService.unixTs,
-      natural: tsMicroService.nlDate
-    });
     response.send(JSON.stringify({
-      unix: tsMicroService.unixTs,
-      natural: tsMicroService.nlDate
+      headers: request.headers
     }));
 });
 
