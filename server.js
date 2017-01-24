@@ -38,6 +38,8 @@ app.get("/", function(request, response) {
 //    let tsMicroService = new TsMicroService(query);
     const userAgentData = request.headers["user-agent"];
     const softwareSpec = userAgentData.match(/\(.+?\)/g)[0].replace(/\(|\)/g,"");
+    const requestIPs = request.ip.split(":");
+    const ipAddr = requestIPs[requestIPs.length - 1];
 
     response.send(JSON.stringify({
       "ipaddress": request.ip,
