@@ -36,10 +36,13 @@ app.set("port", (process.env.PORT || 5000));
 app.get("/", function(request, response) {
 
 //    let tsMicroService = new TsMicroService(query);
-console.log(request.headers["host"]);
+    const userAgentData = request.headers["user-agent"];
+    const softwareSpec = userAgentData.match(/\(.+?\)/g)[0].replace(/\(|\)/g,"");
 
     response.send(JSON.stringify({
-      headers: request.headers
+      "ipaddress": request.headers["host"],
+      "language": request.headers["accept-language"],
+      "software": softwareSpec
     }));
 });
 
