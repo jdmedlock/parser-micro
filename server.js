@@ -42,7 +42,7 @@ app.get("/", function(request, response) {
     const ipAddr = requestIPs[requestIPs.length - 1];
 
     response.send(JSON.stringify({
-      "ipaddress": request.ip,
+      "ipaddress": ipAddr,
       "language": request.headers["accept-language"],
       "software": softwareSpec
     }));
